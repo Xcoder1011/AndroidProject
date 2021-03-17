@@ -59,6 +59,7 @@ class Point(val x: Double, val y: Double) {
 //一个类有两个概念上相同的属性，一个是公共 API 的一部分，另一个是实现细节，那么使用下划线作为私有属性名称的前缀：
 
 class C {
+
     private val _elementList = mutableListOf<Element>()
 
     val elementList: List<Element>

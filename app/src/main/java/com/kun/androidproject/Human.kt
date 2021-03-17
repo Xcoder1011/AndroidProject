@@ -17,9 +17,43 @@ class Person(
         get() = false
 }
 
+const val MAX_COUNT = 8
+val STUDENT_NAME_FIELD = "StudentName"
+
 class Student {
 
+    @Named("telePhone")
+    private val phone: String = ""
+
+    // 如果函数的表达式函数体与函数声明不适合放在同一行，那么将 = 留在第一
+    fun f(x: String, y: String, z: String) =
+        veryLongFunctionCallWithManyWords(x, y, z)
+
+    fun veryLongFunctionCallWithManyWords(x: String, y: String, z: String) {
+
+    }
+
 }
+
+
+
+//abstract class Cache {
+//
+//}
+//
+//abstract class UUCache<out T : Any> : Cache {
+//    abstract fun getCache(key: String): T
+//}
+//
+//class UUCacheImpl : UUCache() {
+//    constructor(x: String) : this(x) {
+//
+//    }
+//
+//    val x = object : Cache {
+//
+//    }
+//}
 
 /*
 如果一个声明有多个修饰符，请始终按照以下顺序安放：
