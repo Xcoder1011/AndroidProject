@@ -6,10 +6,9 @@ println(x+y)
 // 单表达式函数
 fun theAnswer() = 42
 // 等价于
-fun theAnswer(): Int {
+fun theAnswer2(): Int {
     return 42
 }
-
 
 // 1.空值与 null 检测
 // 当某个变量的值可以为 null 的时候，必须在声明处的类型后添加 ? 来标识该引用可为空。
@@ -83,7 +82,7 @@ while (index < items.size) {
     index++;
 }
 
-//  when表达式
+//  when表达式, 类型判断
 fun describe(obj: Any): String =
     when (obj) {
         1 -> "One"
@@ -114,7 +113,6 @@ when {
 // 3. 使用 in 运算符来检测某个数字是否在指定区间内：
 for (i in 1..100) { }       // 闭区间：包含 100
 for (i in 1 until 100) { }  // 半开区间：不包含 100
-
 if (x in 1..y+1) {
     println("fits in range")
 }
@@ -130,7 +128,13 @@ if (list.size !in list.indices) {
 
 val map = mapOf("a" to 1, "b" to 2, "c" to 3) // 只读map
 println(map["b"])  // 2
+// 遍历 map/pair型list
+for ((k,v) in map)
+{
+    println("$k --> $v")
+}
 
+// 过滤 list
 val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
 fruits
     .filter { it.startsWith("a") }
@@ -171,13 +175,21 @@ fun String.spaceToCamelCase() {
 }
 "Convert this to camelcase".spaceToCamelCase()
 
+// 交换两个变量  TODO("将代码标记为不完整")
+var a = 1
+var b = 2
+a = b.also { b = a }
+
 // 6.创建单例
 object CacheManager {
     val dbName = "netcache"
 }
+val cacheManager = CacheManager;
+println("cacheManager.dbName : ${cacheManager.dbName}")
+
 
 // 7.try/catch
- fun test() {
+fun test() {
     val result = try {
 
     } catch (e: ArithmeticException) {
@@ -185,8 +197,3 @@ object CacheManager {
     }
     // 使用 result
 }
-
-// 交换两个变量  TODO("将代码标记为不完整")
-var a = 1
-var b = 2
-a = b.also { b = a }
